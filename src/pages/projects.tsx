@@ -2,7 +2,7 @@
 
 import { ProjectCard } from "../components";
 import { Typography } from "@material-tailwind/react";
-import { getImagePrefix } from "../../../utils/utils";
+import { getImagePrefix } from "../../utils/utils";
 
 const PROJECTS = [
   {
