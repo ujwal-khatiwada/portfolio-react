@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
-import { getImagePrefix } from "../../utils/utils";
+import { getImagePrefix } from "../../../utils/utils";
 
 const CLIENTS = [
   "coinbase",
