@@ -31,7 +31,7 @@ const TESTIMONIALS = [
       "Thanks to Ujwal’s expertise, our product not only looks stunning but also performs flawlessly. He truly understands user experience.",
     name: "Ramesh Adhikari",
     role: "Product Manager @ DesignHub",
-    image: "/image/ujwal.jpg",
+    image: "/image/ujwal.webp",
   },
 ];
 

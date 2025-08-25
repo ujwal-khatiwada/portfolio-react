@@ -11,6 +11,9 @@ import Testimonial from "./pages/testimonial";
 import ContactForm from "./pages/contact-form";
 
 
+import UsersPage from "./pages/users/page";
+
+
 export default function Home() {
   return (
     <div className="font-sans gap-2">
@@ -20,6 +23,7 @@ export default function Home() {
       <Testimonial />
       <ContactForm />
       <Footer />
+      {/* <UsersPage /> */}
     </div>
   );
 }

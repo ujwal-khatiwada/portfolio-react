@@ -162,10 +162,17 @@
 "use client";
 
 import React from "react";
-import { Button } from "@material-tailwind/react";
-import { ConnectWithUs } from "../components";
+import { useState } from "react";
+import { ConnectWithUs, ConstButton } from "../components";
 
 const ContactForm = () => {
+   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+
+  
   return (
     <section className="px-8 py-8 lg:py-16">
       <div className="container mx-auto mb-16 text-center lg:mb-20">
@@ -185,7 +192,9 @@ const ContactForm = () => {
               <div className="grid grid-cols-2 gap-6">
                 <div className="relative w-full h-12">
                   <input
+                    value={firstName}
                     name="first-name"
+                    onChange={(e) => setFirstName(e.target.value)}
                     placeholder="eg. Ujwal"
                     className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
@@ -195,7 +204,9 @@ const ContactForm = () => {
                 </div>
                 <div className="relative w-full h-12">
                   <input
+                    value={lastName}
                     name="last-name"
+                    onChange={(e) => setLastName(e.target.value)}
                     placeholder="eg. Khatiwada"
                     className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
@@ -207,6 +218,8 @@ const ContactForm = () => {
 
               <div className="relative w-full h-12">
                 <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   name="email"
                   placeholder="eg. ujwalkhatiwada@mail.com"
                   className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
@@ -218,7 +231,8 @@ const ContactForm = () => {
 
               <div className="relative w-full h-12">
                 <input
-                  name="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   placeholder=" "
                   className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                 />
@@ -234,7 +248,11 @@ const ContactForm = () => {
                 >
                   Send message
                 </button> */}
-                <Button>Send message</Button>
+                <ConstButton
+                  name={`${firstName} ${lastName}`}
+                  email={email}
+                  message={message}
+                />
               </div>
             </form>
           </div>
@@ -301,4 +319,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-

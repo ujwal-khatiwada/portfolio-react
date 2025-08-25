@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
-import { Navbar, ConnectWithUs } from "../components";
+import { Navbar, ConnectWithUs, ClientLayout } from "../components";
 
 
 
 function Hero() {
   return (
     <header className="h-screen px-8">
-      <Navbar /> 
+      <ClientLayout ><Navbar /></ClientLayout>
       <div className="container mx-auto grid md:h-[calc(100vh-5rem)] min-h-[60vh] md:items-center gap-4 md:gap-10 w-full grid-cols-1 lg:grid-cols-2">
         <div className="row-start-2 lg:row-auto">
           <Typography

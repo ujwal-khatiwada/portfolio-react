@@ -1,12 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Navbar as MTNavbar,
-  Button,
-  IconButton,
-  Typography,
-} from "@material-tailwind/react";
+import { Navbar as MTNavbar, Button, IconButton, Typography } from "@material-tailwind/react";
 import {
   RectangleStackIcon,
   UserCircleIcon,
@@ -18,6 +13,8 @@ import {
   BriefcaseIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/solid";
+
+import { signIn, signOut, useSession } from "next-auth/react";
 
 // Navigation items
 const NAV_MENU = [
@@ -46,11 +43,7 @@ const NAV_MENU = [
 function NavItem({ children, href }) {
   return (
     <li>
-      <Typography
-        as="a"
-        href={href || "#"}
-        className="flex items-center gap-2 text-lg font-medium"
-      >
+      <Typography as="a" href={href || "#"} className="flex items-center gap-2 text-lg font-medium">
         {children}
       </Typography>
     </li>
@@ -60,10 +53,9 @@ function NavItem({ children, href }) {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [openPage, setOpenPage] = useState(false);
+  const { data: session } = useSession();
 
-  const handleOpen = () => {
-    setOpen((cur) => !cur);
-  };
+  const handleOpen = () => setOpen((cur) => !cur);
 
   useEffect(() => {
     const resizeHandler = () => window.innerWidth >= 960 && setOpen(false);
@@ -81,14 +73,12 @@ export function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* Brand */}
-        <Typography className="text-3xl font-bold text-blue-500">
-          Ujwal
-        </Typography>
+        <Typography className="text-3xl font-bold text-blue-500">Ujwal</Typography>
 
         {/* Desktop Nav */}
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href, children }) => (
-            <li
+            <li 
               key={name}
               className="relative group"
               onMouseEnter={() => name === "Page" && setOpenPage(true)}
@@ -101,8 +91,6 @@ export function Navbar() {
                     {name}
                     <ChevronDownIcon className="h-4 w-4" />
                   </button>
-
-                  {/* Dropdown on hover */}
                   {openPage && (
                     <ul className="absolute left-0 mt-2 w-44 bg-white shadow-lg rounded-lg p-2 flex flex-col gap-2">
                       {children.map(({ name, icon: SubIcon, href }) => (
@@ -131,10 +119,12 @@ export function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-2 lg:flex">
-          <Button>Sign In</Button>
-          {/* <a href="#">
-            <Button color="gray">Blocks</Button>
-          </a> */}
+          <Button
+            onClick={() => (session ? signOut() : signIn("google"))}
+            className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600"
+          >
+            {session ? "Sign Out" : "Sign In"}
+          </Button>
         </div>
 
         {/* Mobile toggle */}
@@ -144,20 +134,12 @@ export function Navbar() {
           onClick={handleOpen}
           className="lg:hidden flex items-center justify-center"
         >
-          {open ? (
-            <XMarkIcon strokeWidth={2} className="h-6 w-6" />
-          ) : (
-            <Bars3Icon strokeWidth={2} className="h-6 w-6" />
-          )}
+          {open ? <XMarkIcon strokeWidth={2} className="h-6 w-6" /> : <Bars3Icon strokeWidth={2} className="h-6 w-6" />}
         </IconButton>
       </div>
 
       {/* Mobile Dropdown */}
-      <div
-        className={`lg:hidden mt-4 overflow-hidden transition-all duration-300 ${
-          open ? "max-h-[500px]" : "max-h-0"
-        }`}
-      >
+      <div className={`lg:hidden mt-4 overflow-hidden transition-all duration-300 ${open ? "max-h-[500px]" : "max-h-0"}`}>
         <div className="container mx-auto px-4 py-4 border-b border-gray-200 rounded-2xl flex flex-col gap-4 bg-white/30 backdrop-blur-md">
           <ul className="flex flex-col gap-4">
             {NAV_MENU.map(({ name, icon: Icon, href, children }) => (
@@ -168,14 +150,10 @@ export function Navbar() {
                       <Icon className="h-5 w-5" />
                       {name}
                     </div>
-                    {/* ✅ Always visible in mobile */}
                     <ul className="ml-6 mt-2 flex flex-col gap-2">
                       {children.map(({ name, icon: SubIcon, href }) => (
                         <li key={name}>
-                          <a
-                            href={href}
-                            className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
-                          >
+                          <a href={href} className="flex items-center gap-2 text-gray-700 hover:text-gray-900">
                             <SubIcon className="h-4 w-4" />
                             {name}
                           </a>
@@ -192,11 +170,11 @@ export function Navbar() {
               </li>
             ))}
           </ul>
+          
           <div className="mt-4 flex rounded-lg justify-around">
-            <Button variant="text">Sign In</Button>
-            {/* <a href="#">
-              <Button variant="text">Blocks</Button>
-            </a> */}
+            <Button onClick={() => (session ? signOut() : signIn("google"))} variant="text">
+              {session ? "Sign Out" : "Sign In"}
+            </Button>
           </div>
         </div>
       </div>
