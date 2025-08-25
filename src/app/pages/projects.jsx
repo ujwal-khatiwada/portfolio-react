@@ -23,7 +23,7 @@ const PROJECTS = [
     link:"https://compviva.ujwalkhatiwada.com.np",
   },
   {
-    img: `/image/valentine.png`,
+    img: `/image/none.png`,
     title: "Random Stuffs",
     desc: "Enhanced the trending web ideas.",
     link:"https://valentine.ujwalkhatiwada.com.np/",

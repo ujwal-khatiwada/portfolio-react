@@ -13,14 +13,14 @@ export function ProjectCard({ img, title, desc, link }) {
   };
 
   return (
-    <Card color="transparent" className="bg-white/10 p-4 w-[350px]"  shadow={false}>
+    <Card color="transparent" className="bg-white/10 max-w-[90%] p-4"  shadow={false}>
       <CardHeader floated={false} className="mx-0 mt-0 mb-6 h-60">
         <Image
           src={img}
           alt={title}
-          width={768}
-          height={768}
-          className="h-full object-cover"
+          width={15120}
+          height={1080}
+          className="w-[90%] object-cover"
         />
       </CardHeader>
       <CardBody className="p-0 flex flex-col h-[50%]">
