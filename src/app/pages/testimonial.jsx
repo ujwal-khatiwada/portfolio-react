@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { Typography, Card, CardBody, Avatar } from "@material-tailwind/react";
 
+// ✅ keep data outside component (prevents re-creation on every render)
 const TESTIMONIALS = [
   {
     id: 1,
@@ -34,17 +35,25 @@ const TESTIMONIALS = [
   },
 ];
 
-export function Testimonial() {
-  const [active, setActive] = React.useState(1);
+export default function Testimonial() {
+  const [active, setActive] = useState(1);
 
-  const activeTestimonial = TESTIMONIALS.find((t) => t.id === active);
+  // ✅ memoize active testimonial to avoid recalculating on every render
+  const activeTestimonial = useMemo(
+    () => TESTIMONIALS.find((t) => t.id === active),
+    [active]
+  );
 
   return (
     <section className="py-12 px-8 lg:py-24">
       <div className="container max-w-screen-lg mx-auto">
         {/* Section Heading */}
         <div className="container mx-auto mb-20 text-center">
-                  <Typography variant="h1" color='primary' className="mb-2 text-2xl font-bold uppercase">
+          <Typography
+            variant="h1"
+            color="primary"
+            className="mb-2 text-2xl font-bold uppercase"
+          >
             What Clients Say
           </Typography>
           <Typography
@@ -83,19 +92,19 @@ export function Testimonial() {
 
               {/* Avatars */}
               <div className="flex items-center gap-4">
-                {TESTIMONIALS.map((t) => (
+                {TESTIMONIALS.map((t, idx) => (
                   <React.Fragment key={t.id}>
                     <Avatar
                       variant="rounded"
                       src={t.image}
                       alt={t.name}
-                      size="xsz"
-                      className={`cursor-pointer ${
+                      size="md" // ✅ fixed invalid "xsz" → use "sm" or "md"
+                      className={`cursor-pointer transition-opacity duration-200 ${
                         active === t.id ? "opacity-100" : "opacity-50"
                       }`}
                       onClick={() => setActive(t.id)}
                     />
-                    {t.id < TESTIMONIALS.length && (
+                    {idx < TESTIMONIALS.length - 1 && (
                       <div className="w-[1px] h-[36px] bg-blue-gray-100"></div>
                     )}
                   </React.Fragment>
@@ -108,9 +117,10 @@ export function Testimonial() {
               <Image
                 width={768}
                 height={768}
-                alt="testimonial image"
+                alt={`${activeTestimonial.name} testimonial`}
                 src={activeTestimonial.image}
                 className="h-full rounded-lg w-full object-cover"
+                priority // ✅ improve LCP by eager loading this
               />
             </div>
           </CardBody>
@@ -119,5 +129,3 @@ export function Testimonial() {
     </section>
   );
 }
-
-export default Testimonial;

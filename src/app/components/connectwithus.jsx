@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaFacebookF, FaInstagram, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 export const ConnectWithUs = () => {
   const icons = [
@@ -9,7 +9,8 @@ export const ConnectWithUs = () => {
     { name: "Instagram", href: "https://www.instagram.com/ujwal_khatiwadaa", icon: <FaInstagram />, hover: "hover:text-pink-600" },
     { name: "X", href: "https://x.com/ujwalkhatiwadaa", icon: <FaTwitter />, hover: "hover:text-red-500" },
     { name: "Github", href: "https://github.com/ujwal-khatiwada", icon: <FaGithub />, hover: "hover:text-gray-400" },
-  ];
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/ujwal-khatiwada/", icon: <FaLinkedin />, hover: "hover:text-blue-700" },
+];
 
   function ConnectWithUsLink({ href, children, hover }) {
     return (

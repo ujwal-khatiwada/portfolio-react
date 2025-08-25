@@ -22,13 +22,20 @@ const PROJECTS = [
     desc: "Just made when bored for fun. Just a small projects.",
     link:"https://compviva.ujwalkhatiwada.com.np",
   },
+  {
+    img: `/image/valentine.png`,
+    title: "Random Stuffs",
+    desc: "Enhanced the trending web ideas.",
+    link:"https://valentine.ujwalkhatiwada.com.np/",
+  },
 ];
+
 
 export function Projects() {
   return (
     <section className="py-28 px-8">
       <div className="container mx-auto mb-20 text-center">
-          <Typography variant="h1" color='primary' className="mb-2 text-2xl font-bold uppercase">
+          <Typography variant="h1" color='primary' className="mb-2 text-2xl font-bold uppercase ">
           My Projects
         </Typography>
         <Typography
@@ -38,8 +45,7 @@ export function Projects() {
           I&apos;m here to turn your digital dreams into reality.
         </Typography>
       </div>
-      <div className="container mx-auto grid grid-cols-1.5 gap-x-5 gap-y-10 md:grid-cols-2 xl:grid-cols-4">
-        {PROJECTS.map((props, idx) => (
+      <div className="container mx-auto grid justify-items-center grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">        {PROJECTS.map((props, idx) => (
           <ProjectCard key={idx} {...props} />
         ))}
       </div>

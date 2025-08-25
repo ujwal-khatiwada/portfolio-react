@@ -8,6 +8,7 @@ import Hero from "./pages/Hero";
 import Skills from "./pages/skills";
 import Projects from "./pages/projects";
 import Testimonial from "./pages/testimonial";
+import ContactForm from "./pages/contact-form";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Testimonial />
+      <ContactForm />
       <Footer />
     </div>
   );
