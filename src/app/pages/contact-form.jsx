@@ -1,178 +1,233 @@
 // "use client";
 
-// import {
-//   Typography,
-//   Card,
-//   CardBody,
-//   Radio,
-//   Input,
-//   Textarea,
-//   Button,
-//   IconButton,
-// } from "@material-tailwind/react";
-// import { EnvelopeIcon, PhoneIcon, TicketIcon } from "@heroicons/react/24/solid";
+// import React, { useState } from "react";
+// import { ConnectWithUs, ConstButton } from "../components";
 
-// export function ContactForm() {
+// const ContactForm = () => {
+//   const [firstName, setFirstName] = useState("");
+//   const [lastName, setLastName] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [message, setMessage] = useState("");
+
 //   return (
-//     // <section className="px-8 py-16">
-//     //   <div className="container mx-auto mb-20 text-center">
-//     //     <Typography variant="h1" color='primary' className="mb-4">
-//     //       Contact Us
-//     //     </Typography>
-//     //     <Typography
-//     //       variant="lead"
-//     //       className="mx-auto w-full lg:w-5/12 !text-gray-500"
-//     //     >
-//     //       Ready to get started? Feel free to reach out through the contact form,
-//     //       and let&apos;s embark on a journey of innovation and success.
-//     //     </Typography>
-//     //   </div>
-//     //   <div>
-//     //     <Card shadow={true} className="container mx-auto border border-gray/50">
-//     //       <CardBody className="grid grid-cols-1 lg:grid-cols-7 md:gap-10">
-//     //         <div className="w-full col-span-3 rounded-lg h-full py-8 p-5 md:p-16 bg-gray-900">
-//     //           <Typography variant="h4" color="white" className="mb-2">
-//     //             Contact Information
-//     //           </Typography>
-//     //           <Typography
-//     //             variant="lead"
-//     //             className="mx-auto mb-8 text-base !text-gray-500"
-//     //           >
-//     //             Fill up the form and our Team will get back to you within 24
-//     //             hours.
-//     //           </Typography>
-//     //           <div className="flex gap-5">
-//     //             <PhoneIcon className="h-6 w-6 text-white" />
-//     //             <Typography variant="h6" color="white" className="mb-2">
-//     //               +977 981-6030281
-//     //             </Typography>
-//     //           </div>
-//     //           <div className="flex my-2 gap-5">
-//     //             <EnvelopeIcon className="h-6 w-6 text-white" />
-//     //             <Typography variant="h6" color="white" className="mb-2">
-//     //               ujwalkhatiwada501@mail.com
-//     //             </Typography>
-//     //           </div>
-//     //           <div className="flex items-center gap-5">
-//     //             <IconButton variant="text" color="white">
-//     //               <i className="fa-brands fa-facebook text-lg" />
-//     //             </IconButton>
-//     //             <IconButton variant="text" color="white">
-//     //               <i className="fa-brands fa-instagram text-lg" />
-//     //             </IconButton>
-//     //             <IconButton variant="text" color="white">
-//     //               <i className="fa-brands fa-github text-lg" />
-//     //             </IconButton>
-//     //           </div>
-//     //         </div>
-//     //         <div className="w-full mt-8 md:mt-0 md:px-10 col-span-4 h-full p-5">
-//     //           <form action="#">
-//     //             <div className="mb-8 grid gap-4 lg:grid-cols-2">
-//     //               {/* @ts-ignore */}
-//     //               <Input
-//     //                 color="gray"
-//     //                 size="lg"
-//     //                 variant="static"
-//     //                 label="First Name"
-//     //                 name="first-name"
-//     //                 placeholder="eg. Ujwal"
-//     //                 containerProps={{
-//     //                   className: "!min-w-full mb-3 md:mb-0",
-//     //                 }}
-//     //               />
-//     //               {/* @ts-ignore */}
-//     //               <Input
-//     //                 color="gray"
-//     //                 size="lg"
-//     //                 variant="static"
-//     //                 label="Last Name"
-//     //                 name="last-name"
-//     //                 placeholder="eg. Khatiwada"
-//     //                 containerProps={{
-//     //                   className: "!min-w-full",
-//     //                 }}
-//     //               />
-//     //             </div>
-//     //             {/* @ts-ignore */}
-//     //             <Input
-//     //               color="gray"
-//     //               size="lg"
-//     //               variant="static"
-//     //               label="Email"
-//     //               name="email"
-//     //               placeholder="eg. ujwalkhatiwada@mail.com"
-//     //               containerProps={{
-//     //                 className: "!min-w-full mb-8",
-//     //               }}
-//     //             />
-//     //             <Typography
-//     //               variant="lead"
-//     //               className="!text-blue-gray-500 text-sm mb-2"
-//     //             >
-//     //               What are you interested on?
-//     //             </Typography>
-//     //             <div className="-ml-3 mb-14 ">
-//     //               {/* @ts-ignore */}
-//     //               <Radio
-//     //                 color="gray"
-//     //                 name="type"
-//     //                 label="Design"
-//     //                 defaultChecked
-//     //               />
-//     //               {/* @ts-ignore */}
-//     //               <Radio color="gray" name="type" label="Development" />
-//     //               {/* @ts-ignore */}
-//     //               <Radio color="gray" name="type" label="Support" />
-//     //               {/* @ts-ignore */}
-//     //               <Radio color="gray" name="type" label="Other" />
-//     //             </div>
-//     //             {/* @ts-ignore */}
-//     //             <Textarea
-//     //               color="gray"
-//     //               size="lg"
-//     //               variant="static"
-//     //               label="Your Message"
-//     //               name="first-name"
-//     //               containerProps={{
-//     //                 className: "!min-w-full mb-8",
-//     //               }}
-//     //             />
-//     //             <div className="w-full flex justify-end">
-//     //               <Button className="w-full md:w-fit" color="gray" size="md">
-//     //                 Send message
-//     //               </Button>
-//     //             </div>
-//     //           </form>
-//     //         </div>
-//     //       </CardBody>
-//     //     </Card>
-//     //   </div>
-//     // </section>
+//     <section className="px-8 py-8 lg:py-16">
+//       <div className="container mx-auto mb-16 text-center lg:mb-20">
+//         <h1 className="text-3xl lg:text-4xl font-semibold text-blue-gray-900 mb-4">
+//           Contact Us
+//         </h1>
+//         <p className="text-gray-500 text-base lg:text-xl mx-auto">
+//           Any questions or remarks? Just write us a message!
+//         </p>
+//       </div>
 
-    
+//       <div className="relative flex flex-col bg-white rounded-2xl shadow-md max-w-[85rem] mx-auto text-gray-700">
+//         {/* Form */}
+//         <div className="grid p-2 grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-8 items-center">
+//           <div className="p-6 lg:p-16">
+//             <form className="flex flex-col gap-12 lg:max-w-lg mx-auto w-full">
+//               <div className="grid grid-cols-2 gap-6">
+//                 <div className="relative w-full h-12">
+//                   <input
+//                     value={firstName}
+//                     name="first-name"
+//                     onChange={(e) => setFirstName(e.target.value)}
+//                     placeholder="eg. Ujwal"
+//                     className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+//                   />
+//                   <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+//                     First Name
+//                   </label>
+//                 </div>
+
+//                 <div className="relative w-full h-12">
+//                   <input
+//                     value={lastName}
+//                     name="last-name"
+//                     onChange={(e) => setLastName(e.target.value)}
+//                     placeholder="eg. Khatiwada"
+//                     className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+//                   />
+//                   <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+//                     Last Name
+//                   </label>
+//                 </div>
+//               </div>
+
+//               <div className="relative w-full h-12">
+//                 <input
+//                   value={email}
+//                   onChange={(e) => setEmail(e.target.value)}
+//                   name="email"
+//                   placeholder="eg. ujwalkhatiwada@mail.com"
+//                   className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+//                 />
+//                 <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+//                   Email
+//                 </label>
+//               </div>
+
+//               <div className="relative w-full h-12">
+//                 <input
+//                   value={message}
+//                   onChange={(e) => setMessage(e.target.value)}
+//                   placeholder=" "
+//                   className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+//                 />
+//                 <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+//                   Your Message
+//                 </label>
+//               </div>
+
+//               <div className="flex justify-end lg:mt-24">
+//                 <ConstButton
+//                   name={`${firstName} ${lastName}`}
+//                   email={email}
+//                   message={message}
+//                 />
+//               </div>
+//             </form>
+//           </div>
+
+//           {/* Contact Info */}
+//           <div className="rounded-2xl bg-gray-900 lg:p-20 p-10 w-full text-white">
+//             <h4 className="text-xl lg:text-3xl font-semibold mb-4">
+//               Contact Information
+//             </h4>
+//             <p className="text-base lg:mb-12 mb-8 opacity-50 max-w-sm">
+//               Fill up the form and our Team will get back to you within 24 hours.
+//             </p>
+
+//             <div className="flex items-center gap-5 mb-4">
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="currentColor"
+//                 viewBox="0 0 24 24"
+//                 className="h-3 w-3 md:h-5 md:w-5"
+//               >
+//                 <path
+//                   fillRule="evenodd"
+//                   d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+//                   clipRule="evenodd"
+//                 />
+//               </svg>
+//               <h6 className="md:font-semibold">+977 9816030281</h6>
+//             </div>
+
+//             <div className="flex items-center gap-5 mb-4">
+//               <svg
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="currentColor"
+//                 viewBox="0 0 24 24"
+//                 className="h-3 w-3 md:h-5 md:w-5"
+//               >
+//                 <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+//                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+//               </svg>
+//               <p className="md:font-semibold">
+//                 <a href="mailto:ujwalkhatiwada501@gmail.com">
+//                   ujwalkhatiwada501@gmail.com
+//                 </a>
+//               </p>
+//             </div>
+
+//             <div className="flex space-x-6">
+//               <ConnectWithUs />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
 //   );
-// }
+// };
 
 // export default ContactForm;
 
 
-
-
-
 "use client";
 
-import React from "react";
-import { useState } from "react";
-import { ConnectWithUs, ConstButton } from "../components";
+import React, { useState } from "react";
+import { ConnectWithUs } from "../components";
+import { useSession } from "next-auth/react";
 
 const ContactForm = () => {
-   const [firstName, setFirstName] = useState("");
+  const { data: session } = useSession();
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(null); // success or error message
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!session) {
+    setStatus({ type: "error", message: "Login required to send a message." });
+    return;
+  }
+
+  // Trim values
+  const trimmedFirstName = firstName.trim();
+  const trimmedLastName = lastName.trim();
+  const trimmedEmail = email.trim();
+  const trimmedMessage = message.trim();
+
+  // 1️⃣ Check if fields are empty
+  if (!trimmedFirstName || !trimmedLastName || !trimmedEmail || !trimmedMessage) {
+    setStatus({ type: "error", message: "All fields are required." });
+    return;
+  }
+
+  // 2️⃣ Email format validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(trimmedEmail)) {
+    setStatus({ type: "error", message: "Please enter a valid email." });
+    return;
+  }
+
+  // ✅ Passed validation, proceed
+  setLoading(true);
+  setStatus(null); // clear previous messages
+
+  // Trusted email check
+  const trustedDomains = ["gmail.com", "outlook.com", "yahoo.com"];
+  const emailDomain = trimmedEmail.split("@")[1] || "";
+  const isTrusted = trustedDomains.includes(emailDomain.toLowerCase());
+
+  try {
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName: trimmedFirstName,
+        lastName: trimmedLastName,
+        email: trimmedEmail,
+        message: trimmedMessage,
+        isTrusted,
+        loggedInEmail: session.user?.email || "",
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) throw new Error(data?.error || "Something went wrong!");
+
+    setStatus({ type: "success", message: "Message sent successfully!" });
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setMessage("");
+  } catch (err) {
+    setStatus({ type: "error", message: err.message });
+  } finally {
+    setLoading(false);
+  }
+};
 
 
-  
+
+
+
   return (
     <section className="px-8 py-8 lg:py-16">
       <div className="container mx-auto mb-16 text-center lg:mb-20">
@@ -185,30 +240,30 @@ const ContactForm = () => {
       </div>
 
       <div className="relative flex flex-col bg-white rounded-2xl shadow-md max-w-[85rem] mx-auto text-gray-700">
-        {/* Form */}
         <div className="grid p-2 grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-8 items-center">
           <div className="p-6 lg:p-16">
-              <form className="flex flex-col gap-12 lg:max-w-lg mx-auto w-full">
+            <form className="flex flex-col gap-6 lg:max-w-lg mx-auto w-full" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="relative w-full h-12">
                   <input
-                    value={firstName}
                     name="first-name"
+                    value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="eg. Ujwal"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
                   <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
                     First Name
                   </label>
                 </div>
+
                 <div className="relative w-full h-12">
                   <input
-                    value={lastName}
                     name="last-name"
+                    value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="eg. Khatiwada"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
                   <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
                     Last Name
@@ -218,45 +273,51 @@ const ContactForm = () => {
 
               <div className="relative w-full h-12">
                 <input
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  name="email"
                   placeholder="eg. ujwalkhatiwada@mail.com"
-                  className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+                  className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                 />
                 <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
                   Email
                 </label>
               </div>
 
-              <div className="relative w-full h-12">
-                <input
+              <div className="relative w-full">
+                <textarea
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder=" "
-                  className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 placeholder-shown:border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+                  rows={6}
+                  className="peer w-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all resize-none"
                 />
                 <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
                   Your Message
                 </label>
               </div>
 
-              <div className="flex justify-end lg:mt-24">
-                {/* <button
-                  type="button"
-                  className="font-bold text-xs py-3 px-6 rounded-lg bg-[--button] text-white shadow-md hover:shadow-lg focus:opacity-85 active:opacity-85 w-full md:w-fit transition-all"
+              {status && (
+                <p
+                  className={`text-sm ${
+                    status.type === "success" ? "text-green-600" : "text-red-600"
+                  }`}
                 >
-                  Send message
-                </button> */}
-                <ConstButton
-                  name={`${firstName} ${lastName}`}
-                  email={email}
-                  message={message}
-                />
-              </div>
+                  {status.message}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full py-3 rounded-xl text-white font-semibold transition-all ${
+                  loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                {loading ? "Sending..." : "Send Message"}
+              </button>
             </form>
           </div>
-          
 
           {/* Contact Info */}
           <div className="rounded-2xl bg-gray-900 lg:p-20 p-10 w-full text-white">
@@ -294,22 +355,14 @@ const ContactForm = () => {
                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
               </svg>
               <p className="md:font-semibold">
-                <a href="mailto:ujwalkhatiwada501@gmail.com">ujwalkhatiwada501@gmail.com</a>
+                <a href="mailto:ujwalkhatiwada501@gmail.com">
+                  ujwalkhatiwada501@gmail.com
+                </a>
               </p>
             </div>
 
-            
-
-            {/* Social Icons */}
-            {/* <div className="flex items-center gap-1.5">
-              {[FaTwitter, FaLinkedin, FaDribbble, FaFacebook].map((Icon, idx) => (
-                <a key={idx} href="#" className="w-10 h-10 flex items-center justify-center rounded-lg text-white hover:bg-white/10 active:bg-white/30">
-                  <Icon className="text-xl" />
-                </a>
-              ))}
-            </div> */}
             <div className="flex space-x-6">
-                <ConnectWithUs />
+              <ConnectWithUs />
             </div>
           </div>
         </div>

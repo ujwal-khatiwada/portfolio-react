@@ -20,7 +20,7 @@ async function refreshAccessToken(token) {
       ...token,
       accessToken: refreshedTokens.access_token,
       accessTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
-      refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // fall back to old refresh token
+      refreshToken: refreshedTokens.refresh_token ?? token.refreshToken,
     };
   } catch (error) {
     console.error("Error refreshing access token:", error);
@@ -35,9 +35,9 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       authorization: {
         params: {
-          access_type: "offline", // <-- crucial for refresh token
+          access_type: "offline",
           prompt: "consent",
-          scope: "openid email profile https://www.googleapis.com/auth/calendar", // add scopes you need
+          scope: "openid email profile https://www.googleapis.com/auth/calendar",
         },
       },
     }),
@@ -47,14 +47,14 @@ const handler = NextAuth({
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ token, account }) {
+    async jwt({ token, account, profile }) {
       // First sign in
-      if (account) {
+      if (account && profile) {
         return {
           accessToken: account.access_token,
           accessTokenExpires: Date.now() + account.expires_in * 1000,
           refreshToken: account.refresh_token,
-          user: account.user,
+          email: profile.email, // store user email here
         };
       }
 
@@ -69,6 +69,7 @@ const handler = NextAuth({
     async session({ session, token }) {
       session.user.accessToken = token.accessToken;
       session.user.refreshToken = token.refreshToken;
+      session.user.email = token.email; // make email available in session
       return session;
     },
   },
