@@ -17,7 +17,7 @@ function Hero() {
             color='primary'
             className="mb-2 lg:text-5xl !leading-tight text-3xl"
           >
-            Welcome to my  <br />  Portofolio!
+            Welcome to my  <br />  Portfolio!
           </Typography>
           <Typography
             variant="lead"
