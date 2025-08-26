@@ -47,7 +47,7 @@ export function Skills() {
   return (
     <section className="px-8">
       <div className="container mx-auto mb-20 text-center">
-          <Typography variant="h1" color='primary' className="mb-2 text-2xl font-bold uppercase">
+        <Typography variant="h1" color='primary' className="mb-2 text-2xl font-bold uppercase">
           What I do
         </Typography>
         <Typography

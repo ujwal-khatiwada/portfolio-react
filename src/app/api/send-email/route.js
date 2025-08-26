@@ -19,7 +19,7 @@ export async function POST(req) {
       replyTo: email,
       to: "ujwalkhatiwada501@gmail.com",
       subject: `New Message from ${firstName} ${lastName}`,
-      text: `You have received a new message from ${loggedInEmail}. \n \n${message}`,
+      text: `You have received a new message from ${loggedInEmail} as ${email}. \n \n${message}`,
     });
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });

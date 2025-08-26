@@ -13,7 +13,7 @@ export function ProjectCard({ img, title, desc, link }) {
   };
 
   return (
-    <Card color="transparent" className="bg-white/10 max-w-[90%] p-4"  shadow={false}>
+    <Card color="transparent" className="bg-[var(--container)] max-w-[90%] p-4"  shadow={false}>
       <CardHeader floated={false} className="mx-0 mt-0 mb-6 h-60">
         <Image
           src={img}

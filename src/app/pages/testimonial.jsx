@@ -66,7 +66,7 @@ export default function Testimonial() {
         </div>
 
         {/* Testimonial Card */}
-        <Card color="transparent" shadow={false} className="py-8 lg:flex-row">
+        <Card color="transparent" shadow={false} className="py-8 bg-[var(--container)] lg:flex-row">
           <CardBody className="w-full lg:gap-10 h-full lg:!flex justify-between">
             {/* Left Side Text */}
             <div className="w-full mb-10 lg:mb-0">

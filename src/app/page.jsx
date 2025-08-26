@@ -10,7 +10,6 @@ import Projects from "./pages/projects";
 import Testimonial from "./pages/testimonial";
 import ContactForm from "./pages/contact-form";
 
-import { ClientLayout } from "./components";
 
 
 export default function Home() {
@@ -20,9 +19,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Testimonial />
-      <ClientLayout>
-        <ContactForm />
-      </ClientLayout>
+      <ContactForm />
       <Footer />
       {/* <UsersPage /> */}
     </div>

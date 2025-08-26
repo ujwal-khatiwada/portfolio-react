@@ -3,10 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --button: #111827;
+  --container: #acb1ba;
+  --nestedContainer: #474c54;
 }
 
 @theme inline {
-  --color-background: var(--background);
+--color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -16,16 +19,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --button: #F4F4F4;
     --container: #111827;
+    --nestedContainer: #1f2937;
   }
 }
-/* @media (prefers-color-scheme: light) {
-  :root {
-    --background: #ededed;
-    --foreground: #0a0a0a;
-    --container: #F4F4F4;
-  }
-} */
+
 
 body {
   background: var(--background);
