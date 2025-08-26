@@ -55,7 +55,10 @@ export function Navbar() {
   const [openPage, setOpenPage] = useState(false);
   const { data: session } = useSession();
 
-  const handleOpen = () => setOpen((cur) => !cur);
+  const handleOpen = () => {
+    setOpen((cur) => !cur);
+    console.log("clicked");
+  };
 
   useEffect(() => {
     const resizeHandler = () => window.innerWidth >= 960 && setOpen(false);
@@ -128,18 +131,29 @@ export function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <IconButton
+        {/* <IconButton
           variant="text"
-          color="white"
+          color="blue"
           onClick={handleOpen}
           className="lg:hidden flex items-center justify-center"
         >
           {open ? <XMarkIcon strokeWidth={2} className="h-6 w-6" /> : <Bars3Icon strokeWidth={2} className="h-6 w-6" />}
-        </IconButton>
+        </IconButton> */}
+        <button
+  onClick={handleOpen}
+  className="lg:hidden flex items-center justify-center text-white p-2"
+>
+  {open ? (
+    <XMarkIcon className="h-6 w-6" />
+  ) : (
+    <Bars3Icon className="h-6 w-6" />
+  )}
+</button>
+
       </div>
 
       {/* Mobile Dropdown */}
-      <div className={`lg:hidden mt-4 overflow-hidden transition-all duration-300 ${open ? "max-h-[500px]" : "max-h-0"}`}>
+      <div className={`lg:hidden mt-4 overflow-hidden transition-all duration-300 z-8 ${open ? "max-h-50" : "max-h-0"}`}>
         <div className="container mx-auto px-4 py-4 border-b border-gray-200 rounded-2xl flex flex-col gap-4 bg-white/30 backdrop-blur-md">
           <ul className="flex flex-col gap-4">
             {NAV_MENU.map(({ name, icon: Icon, href, children }) => (
