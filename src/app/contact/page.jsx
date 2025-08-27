@@ -4,7 +4,7 @@ import ContactForm from '../pages/contact-form';
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className=" min-h-[100dvh] flex flex-col justify-between">
         <Navbar />
         <ContactForm />
         <Footer />

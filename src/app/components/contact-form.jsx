@@ -87,7 +87,7 @@ const ContactFormComp = () => {
     <section className="px-8">
       <div className="relative flex flex-col bg-[var(--container)] rounded-2xl shadow-md max-w-[85rem] mx-auto text-gray-700">
         <div className="grid p-2 grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-8 items-center">
-          <div className="p-6 lg:p-16">
+          <div className="p-6 ">
             <form className="flex flex-col gap-6 lg:max-w-lg mx-auto w-full" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-6">
                 <div className="relative w-full h-12">
@@ -96,9 +96,9 @@ const ContactFormComp = () => {
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="eg. Ujwal"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+                    className="peer w-full h-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
-                  <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gray-400 transition-all">
                     First Name
                   </label>
                 </div>
@@ -109,9 +109,9 @@ const ContactFormComp = () => {
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="eg. Khatiwada"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+                    className="peer w-full h-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
-                  <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
                     Last Name
                   </label>
                 </div>
@@ -123,9 +123,9 @@ const ContactFormComp = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="eg. ujwalkhatiwada@mail.com"
-                  className="peer w-full h-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
+                  className="peer w-full h-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                 />
-                <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
                   Email
                 </label>
               </div>
@@ -136,9 +136,9 @@ const ContactFormComp = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder=" "
                   rows={3}
-                  className="peer w-full bg-transparent text-blue-gray-700 font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all resize-none"
+                  className="peer w-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all resize-none"
                 />
-                <label className="absolute left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
                   Your Message
                 </label>
               </div>
@@ -166,7 +166,7 @@ const ContactFormComp = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="rounded-2xl bg-[var(--nestedContainer)] lg:p-20 p-10 w-full text-white">
+          <div className="rounded-2xl bg-[var(--nestedContainer)] p-10 w-full text-white">
             <h4 className="text-xl lg:text-3xl font-semibold mb-4">
               Contact Information
             </h4>
