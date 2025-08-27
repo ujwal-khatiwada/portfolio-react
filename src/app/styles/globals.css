@@ -5,6 +5,7 @@
   --foreground: #171717;
   --button: #111827;
   --container: #acb1ba;
+  --notcontainer: #111827;
   --nestedContainer: #474c54;
 }
 
@@ -21,6 +22,7 @@
     --foreground: #ededed;
     --button: #F4F4F4;
     --container: #111827;
+    --notcontainer: #acb1ba;
     --nestedContainer: #1f2937;
   }
 }
