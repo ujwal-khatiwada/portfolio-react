@@ -98,7 +98,7 @@ const ContactFormComp = () => {
                     placeholder="eg. Ujwal"
                     className="peer w-full h-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
-                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-[var(--notcontainer)] transition-all">
                   First Name
                   </label>
                 </div>
@@ -111,7 +111,7 @@ const ContactFormComp = () => {
                     placeholder="eg. Khatiwada"
                     className="peer w-full h-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
-                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-[var(--notcontainer)] transition-all">
                     Last Name
                   </label>
                 </div>
@@ -125,7 +125,7 @@ const ContactFormComp = () => {
                   placeholder="eg. ujwalkhatiwada@mail.com"
                   className="peer w-full h-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                 />
-                <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-[var(--notcontainer)] transition-all">
                   Email
                 </label>
               </div>
@@ -138,7 +138,7 @@ const ContactFormComp = () => {
                   rows={3}
                   className="peer w-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all resize-none"
                 />
-                <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-[var(--notcontainer)] transition-all">
                   Your Message
                 </label>
               </div>

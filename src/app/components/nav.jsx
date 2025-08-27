@@ -112,8 +112,8 @@ export function Nav() {
                   )}
                 </>
               ) : (
-                <NavItem href={href}>
-                  <Icon className="h-5 w-5 text-[var(--foreground)]" />
+                <NavItem href={href} className="text-[var(--foreground)]">
+                  <Icon className="h-5 w-5"/>
                   {name}
                 </NavItem>
               )}
