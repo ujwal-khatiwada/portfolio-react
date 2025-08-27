@@ -19,9 +19,16 @@ export default function Home() {
       <Skills />
       <Projects />
       <Testimonial />
+      <h1 className="text-3xl font-bold text-center mt-6 mb-1 text-[var(--foreground)]">
+        Contact me
+      </h1>
+      <p className="text-center mb-3 text-[var(--foreground)]">
+        don't
+      </p>
       <ContactForm />
       <Footer />
       {/* <UsersPage /> */}
     </div>
   );
+
 }
