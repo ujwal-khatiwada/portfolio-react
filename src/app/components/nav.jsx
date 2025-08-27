@@ -43,6 +43,14 @@ const NAV_MENU = [
 // ✅ NavItem
 function NavItem({ children, href }) {
   return (
+    <Link href={href || "#"} className="flex items-center gap-2 text-lg text-[var(--foreground)] font-medium">
+      {children}
+    </Link>
+  );
+}
+// ✅ NavItem
+function NavItemMobile({ children, href }) {
+  return (
     <Link href={href || "#"} className="flex items-center gap-2 text-lg text-gray-900 font-medium">
       {children}
     </Link>
@@ -177,10 +185,10 @@ export function Nav() {
                     </ul>
                   </>
                 ) : (
-                  <NavItem href={href} className="text-gray-900">
+                  <NavItemMobile href={href}>
                     <Icon className="h-5 w-5" />
                     {name}
-                  </NavItem>
+                  </NavItemMobile>
                 )}
               </li>
             ))}
