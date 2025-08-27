@@ -43,7 +43,7 @@ const NAV_MENU = [
 // ✅ NavItem
 function NavItem({ children, href }) {
   return (
-    <Link href={href || "#"} className="flex items-center gap-2 text-[var(--foreground)] text-lg font-medium">
+    <Link href={href || "#"} className="flex items-center gap-2 text-lg text-gray-900 font-medium">
       {children}
     </Link>
   );
@@ -80,26 +80,28 @@ export function Nav() {
         {/* Desktop Nav */}
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href, children }) => (
-            <li 
+            <li
               key={name}
               className="relative group"
-              onMouseEnter={() => name === "Page" && setOpenPage(true)}
-              onMouseLeave={() => name === "Page" && setOpenPage(false)}
             >
               {children ? (
                 <>
-                  <button className="flex items-center gap-2 text-lg font-medium text-white/70 hover:text-white">
+                  <button
+                    onClick={() => setOpenPage((prev) => !prev)} // toggle on click
+                    className="flex items-center gap-2 text-lg font-medium text-[var(--foreground)]"
+                  >
                     <Icon className="h-5 w-5" />
                     {name}
                     <ChevronDownIcon className="h-4 w-4" />
                   </button>
+
                   {openPage && (
-                    <ul className="absolute left-0 mt-2 w-44 bg-white shadow-lg rounded-lg p-2 flex flex-col gap-2">
+                    <ul className="absolute left-0 mt-2 w-44 bg-[var(--foreground)] shadow-lg rounded-lg p-2 flex flex-col gap-2 z-50">
                       {children.map(({ name, icon: SubIcon, href }) => (
                         <li key={name}>
                           <Link
                             href={href}
-                            className="flex items-center gap-2 px-2 py-1 text-gray-700 hover:bg-gray-100 rounded-md"
+                            className="flex items-center gap-2 px-2 py-1 text-[var(--background)] hover:bg-gray-100 rounded-md"
                           >
                             <SubIcon className="h-4 w-4" />
                             {name}
@@ -111,7 +113,7 @@ export function Nav() {
                 </>
               ) : (
                 <NavItem href={href}>
-                  <Icon className="h-5 w-5 text-white/70" />
+                  <Icon className="h-5 w-5 text-[var(--foreground)]" />
                   {name}
                 </NavItem>
               )}

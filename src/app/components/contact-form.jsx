@@ -98,8 +98,8 @@ const ContactFormComp = () => {
                     placeholder="eg. Ujwal"
                     className="peer w-full h-full text-[var(--foreground)] font-normal outline-0 border-b border-blue-gray-200 text-sm px-px pt-5 pb-2 focus:border-gray-900 transition-all"
                   />
-                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-xs peer-focus:text-gray-400 transition-all">
-                    First Name
+                  <label className="absolute z-10 left-0 -top-2.5 text-gray-500 text-sm peer-focus:text-gray-900 transition-all">
+                  First Name
                   </label>
                 </div>
 
